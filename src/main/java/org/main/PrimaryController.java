@@ -16,15 +16,12 @@ import java.util.List;
 import java.util.Objects;
 
 public class PrimaryController {
-    Integer[] indexes = {0,1,2,3,4,5,6};
+    Integer[] indexes;
     int currentIndex = -1;
-    String[] Actors = {"Robert Downey, Jr.","Leonardo DiCaprio","Samy Naceri","Bruce Willis","Bud Spencer","Harrison Ford","Terence Hill"};
-    String[] VActors = {"Fekete Ernő Tibor","Hevér Gábor","Görög László","Dörner György","Bujtor István","Csernák János","Ujréti László"};
-    String[] Movies = {"A vasember","Eredet","Taxi","Die Hard","Kincs, ami nincs","Indiana Jones 3","Kincs, ami nincs"};
-    String[] Photos = {"photo0.png","photo1.png","photo2.png","photo3.png","photo4.png","photo5.png","photo6.png"};
-    String[] Silhouette = {"sziluett0.png","sziluett1.png","sziluett2.png","sziluett3.png","sziluett4.png","sziluett5.png","sziluett6.png"};
-    String[] Sounds = {"sound0.mp3","sound1.mp3","sound2.mp3","sound3.mp3","sound4.mp3","sound5.mp3","sound6.mp3"};
-    
+    String[] Actors = {"Robert Downey, Jr.","Leonardo DiCaprio","Samy Naceri","Bruce Willis","Bud Spencer","Harrison Ford","Terence Hill","Szamár/Eddie Murphy","Adam Sandler","Zendaya"};
+    String[] VActors = {"Fekete Ernő Tibor","Hevér Gábor","Görög László","Dörner György","Bujtor István","Csernák János","Ujréti László","Kerekes József","Csőre Gábor","Csuha Bori"};
+    String[] Movies = {"A vasember","Eredet","Taxi","Die Hard","Kincs, ami nincs","Indiana Jones 3","Kincs, ami nincs","Shrek","Távkapcs","???",""};
+
     //region Imports
     public Button StartB;
     public HBox MainBox;
@@ -111,6 +108,9 @@ public class PrimaryController {
     //endregion
 
     public void Start() {
+        indexes = new Integer[Actors.length];
+        for (int i = 0; i < Actors.length; i++) {
+            indexes[i]=i; }
         List<Integer> list =Arrays.asList(indexes);
         Collections.shuffle(list);
         list.toArray(indexes);
@@ -123,13 +123,13 @@ public class PrimaryController {
     }
 
     public void PlaySound() {
-        Media media = new Media(Objects.requireNonNull(getClass().getResource(Sounds[indexes[currentIndex]])).toExternalForm());
+        Media media = new Media(Objects.requireNonNull(getClass().getResource("sound"+indexes[currentIndex]+".mp3")).toExternalForm());
         MediaPlayer mediaPlayer = new MediaPlayer(media);
         mediaPlayer.play();
     }
 
     public void Reveal() {
-        Image image = new Image(Objects.requireNonNull(getClass().getResource(Photos[indexes[currentIndex]])).toExternalForm());
+        Image image = new Image(Objects.requireNonNull(getClass().getResource("photo"+ indexes[currentIndex]+".png")).toExternalForm());
         Photo.setImage(image);
         AName.setText(Actors[indexes[currentIndex]]);
         VAName.setText(VActors[indexes[currentIndex]]);
@@ -139,7 +139,7 @@ public class PrimaryController {
     public void Next() {
         currentIndex++;
 
-        Image image = new Image(Objects.requireNonNull(getClass().getResource(Silhouette[indexes[currentIndex]])).toExternalForm());
+        Image image = new Image(Objects.requireNonNull(getClass().getResource("sziluett"+indexes[currentIndex]+".png")).toExternalForm());
         Photo.setImage(image);
         AName.setText("-----------------");
         VAName.setText("-----------------");
