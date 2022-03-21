@@ -18,9 +18,9 @@ import java.util.Objects;
 public class PrimaryController {
     Integer[] indexes;
     int currentIndex = -1;
-    String[] Actors = {"Robert Downey, Jr.","Leonardo DiCaprio","Samy Naceri","Bruce Willis","Bud Spencer","Harrison Ford","Terence Hill","Szamár/Eddie Murphy","Adam Sandler","Zendaya"};
-    String[] VActors = {"Fekete Ernő Tibor","Hevér Gábor","Görög László","Dörner György","Bujtor István","Csernák János","Ujréti László","Kerekes József","Csőre Gábor","Csuha Bori"};
-    String[] Movies = {"A vasember","Eredet","Taxi","Die Hard","Kincs, ami nincs","Indiana Jones 3","Kincs, ami nincs","Shrek","Távkapcs","???",""};
+    String[] Actors = {"Robert Downey, Jr.","Leonardo DiCaprio","Samy Naceri","Bruce Willis","Bud Spencer","Harrison Ford","Terence Hill","Szamár/Eddie Murphy","Adam Sandler","Zendaya","Ryan Reynolds","Mark Ruffalo","Daniel Radcliffe","Benedict Cumberbatch","Dwayne Johnson","George Clooney","Michael Gambon","Johnny Depp","Keanu Reeves","Will Smith","Martin Lawrence","Samuel L. Jackson","Rob Schneider","Jim Carrey"};
+    String[] VActors = {"Fekete Ernő Tibor","Hevér Gábor","Görög László","Dörner György","Bujtor István","Csernák János","Ujréti László","Kerekes József","Csőre Gábor","Csuha Bori","Nagy Ervin","Rajkai Zoltán","Gacsal Ádám","Simon Kornél","Galambos Péter","Szabó Sipos Barnabás","Makay Sándor","Király Attila","László Zsolt","Kálid Artúr","Kálloy Molnár Péter","Vass Gábor","Józsa Imre","Kerekes József"};
+    String[] Movies = {"A vasember","Eredet","Taxi","Die Hard","Kincs, ami nincs","Indiana Jones 3","Kincs, ami nincs","Shrek","Távkapcs","Eufória","Deadpool 2","Az Adam-project","Harry potter és a titkok kamrája","Kódjátszma","Különösen veszélyes bűnözők","Ocean's Eleven","Harry Potter és a Tűz Serlege(4)","A Karib-Tenger Kalózai: Holtak Kincse","Mátrix","Aladdin","Bad Boys 2","Vasember 2","Tök Állat","Ace Ventura"};
 
     //region Imports
     public Button StartB;
@@ -115,6 +115,9 @@ public class PrimaryController {
         Collections.shuffle(list);
         list.toArray(indexes);
         System.out.println(Arrays.toString(indexes));
+        System.out.println(Actors.length);
+        System.out.println(VActors.length);
+        System.out.println(Movies.length);
 
 
         StartB.setVisible(false);
